@@ -127,8 +127,8 @@ class LocalConfig(BaseConfig):
     DEBUG = True
 
     # Using a local postgre database
-    SQLALCHEMY_DATABASE_URI = "postgresql:///bit_schema"
-    # SQLALCHEMY_DATABASE_URI = BaseConfig.build_db_uri()
+    # SQLALCHEMY_DATABASE_URI = "postgresql:///bit_schema"
+    SQLALCHEMY_DATABASE_URI = BaseConfig.build_db_uri()
     
 class TestingConfig(BaseConfig):
     """Testing configuration."""
