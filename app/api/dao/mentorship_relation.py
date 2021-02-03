@@ -93,7 +93,11 @@ class MentorshipRelationDAO:
         for relation in all_mentor_relations:
             if relation.state == MentorshipRelationState.ACCEPTED:
                 return messages.MENTOR_ALREADY_IN_A_RELATION, HTTPStatus.BAD_REQUEST
-
+            if relation.state == MentorshipRelationState.PENDING and relation.mentee_id == mentee_id:
+                return messages.RELATION_REQUEST_ALREADY_PENDING, HTTPStatus.CONFLICT
+            if relation.state == MentorshipRelationState.ACCEPTED and relation.mentee_id == mentee_id:
+                return messages.RELATION_REQUEST_ALREADY_ACCEPTED, HTTPStatus.CONFLICT
+        
         all_mentee_relations = (
             mentee_user.mentor_relations + mentee_user.mentee_relations
         )

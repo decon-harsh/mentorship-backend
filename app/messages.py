@@ -186,6 +186,16 @@ UNACCEPTED_STATE_RELATION = {
 MENTORSHIP_RELATION_NOT_IN_ACCEPT_STATE = {
     "message": "Mentorship relation is" " not in the accepted state."
 }
+RELATION_REQUEST_ALREADY_SENT_PENDING= {
+    "message": "Mentorship request has been sent already and is pending."
+}
+RELATION_REQUEST_ALREADY_PENDING= {
+    "message": "Mentorship request has been sent already and is pending."
+}
+RELATION_REQUEST_ALREADY_ACCEPTED= {
+    "message": "Mentorship request already accepted."
+}
+
 
 # Login errors
 USER_ENTERED_INCORRECT_PASSWORD = {"message": "Current password is incorrect."}
