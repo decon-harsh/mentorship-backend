@@ -30,6 +30,7 @@ MENTORSHIP_RELATION_DOES_NOT_EXIST = {
 USER_NOT_FOUND = {"message": "User not found."}
 MENTOR_DOES_NOT_EXIST = {"message": "Mentor user does not exist."}
 MENTEE_DOES_NOT_EXIST = {"message": "Mentee user does not exist."}
+ORG_REP_DOES_NOT_EXIST = {"message": "Organization representative user does not exist."}
 TASK_DOES_NOT_EXIST = {"message": "Task does not exist."}
 USER_DOES_NOT_EXIST = {"message": "User does not exist."}
 TASK_COMMENT_DOES_NOT_EXIST = {"message": "Task comment does not exist."}
@@ -40,6 +41,9 @@ TASK_COMMENT_WITH_GIVEN_TASK_ID_DOES_NOT_EXIST = {
 # Missing fields
 MENTOR_ID_FIELD_IS_MISSING = {"message": "Mentor ID field is missing."}
 MENTEE_ID_FIELD_IS_MISSING = {"message": "Mentee ID field is missing."}
+MENTEE_OR_MENTOR_ID_FIELD_IS_MISSING = {"message": "Send either Mentor or Mentee ID field in the request body."}
+ORG_REP_ID_FIELD_IS_MISSING = {"message": "Org Representative ID field is missing."}
+START_DATE_FIELD_IS_MISSING = {"message": "Start date field is missing."}
 END_DATE_FIELD_IS_MISSING = {"message": "End date field is missing."}
 NOTES_FIELD_IS_MISSING = {"message": "Notes field is missing."}
 USERNAME_FIELD_IS_MISSING = {"message": "The field username is missing."}
@@ -95,6 +99,12 @@ MENTEE_ALREADY_IN_A_RELATION = {
 MATCH_EITHER_MENTOR_OR_MENTEE = {
     "message": "Your ID has to match either" " Mentor or Mentee IDs."
 }
+MATCH_EITHER_MENTOR_OR_ORG_REP = {
+    "message": "Your ID has to match either" " Mentor or Org Representative"
+}
+MATCH_EITHER_MENTEE_OR_ORG_REP = {
+    "message": "Your ID has to match either" " Mentee or Org Representative"
+}
 TASK_COMMENT_WAS_NOT_CREATED_BY_YOU = {
     "message": "You have not created the comment and therefore cannot " "modify it."
 }
@@ -110,6 +120,9 @@ NO_DATA_FOR_UPDATING_PROFILE_WAS_SENT = {
 # Relation constraints
 MENTOR_ID_SAME_AS_MENTEE_ID = {
     "message": "You cannot have a mentorship" " relation with yourself."
+}
+MENTOR_ID_OR_MENTEE_ID_SAME_AS_ORG_REP_ID = {
+    "message": "You cannot have a mentorship" " relation with Organization's Representative."
 }
 END_TIME_BEFORE_PRESENT = {"message": "End date is invalid since date has" " passed."}
 MENTOR_TIME_GREATER_THAN_MAX_TIME = {
@@ -232,6 +245,21 @@ MENTORSHIP_RELATION_WAS_REJECTED_SUCCESSFULLY = {
 MENTORSHIP_RELATION_WAS_CANCELLED_SUCCESSFULLY = {
     "message": "Mentorship relation was cancelled successfully."
 }
+PROGRAM_MENTORSHIP_RELATION_WAS_SENT_SUCCESSFULLY = {
+    "message": "Program Mentorship relation" " was sent successfully."
+}
+PROGRAM_MENTORSHIP_RELATION_WAS_ACCEPTED_SUCCESSFULLY = {
+    "message": "Program Mentorship" " relation was accepted" " successfully."
+}
+PROGRAM_MENTORSHIP_RELATION_WAS_DELETED_SUCCESSFULLY = {
+    "message": "Program Mentorship" " relation was deleted" " successfully."
+}
+PROGRAM_MENTORSHIP_RELATION_WAS_REJECTED_SUCCESSFULLY = {
+    "message": "Program Mentorship" " relation was" " rejected successfully."
+}
+PROGRAM_MENTORSHIP_RELATION_WAS_CANCELLED_SUCCESSFULLY = {
+    "message": "Program Mentorship relation was cancelled successfully."
+}
 TASK_WAS_CREATED_SUCCESSFULLY = {"message": "Task was created successfully."}
 TASK_WAS_DELETED_SUCCESSFULLY = {"message": "Task was deleted successfully."}
 TASK_WAS_ACHIEVED_SUCCESSFULLY = {"message": "Task was achieved" " successfully."}
@@ -294,3 +322,4 @@ INVALID_END_DATE = {
     "message": "Validation error. End date represented by the timestamp is invalid."
 }
 NOT_IMPLEMENTED = {"message": "Not implemented."}
+MENTEE_AND_MENTOR_ID_FIELDS_ARE_PRESENT = {"messages" : "You cannot send both Mentor and Mentee ID in the request body."}

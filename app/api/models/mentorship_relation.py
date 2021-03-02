@@ -10,6 +10,9 @@ def add_models_to_namespace(api_namespace):
         send_mentorship_request_body.name
     ] = send_mentorship_request_body
     api_namespace.models[
+        send_program_mentorship_by_program_request_body.name
+    ] = send_program_mentorship_by_program_request_body
+    api_namespace.models[
         mentorship_request_response_body.name
     ] = mentorship_request_response_body
     api_namespace.models[relation_user_response_body.name] = relation_user_response_body
@@ -31,6 +34,51 @@ send_mentorship_request_body = Model(
         ),
         "mentee_id": fields.Integer(
             required=True, description="Mentorship relation mentee ID"
+        ),
+        "end_date": fields.Float(
+            required=True,
+            description="Mentorship relation end date in UNIX timestamp format",
+        ),
+        "notes": fields.String(required=True, description="Mentorship relation notes"),
+    },
+)
+
+send_program_mentorship_by_program_request_body = Model(
+    "Send mentorship relation request model",
+    {
+        "mentor_id": fields.Integer(
+            description="Mentorship relation mentor ID"
+        ),
+        "mentee_id": fields.Integer(
+            description="Mentorship relation mentor ID"
+        ),
+        "org_rep_id": fields.Integer(
+            required=True, description="Mentorship relation Organization Representative's ID"
+        ),
+        "start_date": fields.Float(
+            required=True,
+            description="Mentorship relation end date in UNIX timestamp format",
+        ),
+        "end_date": fields.Float(
+            required=True,
+            description="Mentorship relation end date in UNIX timestamp format",
+        ),
+        "notes": fields.String(required=True, description="Mentorship relation notes"),
+    },
+)
+
+send_program_mentorship_mentee_request_body = Model(
+    "Send mentorship relation request model",
+    {
+        "mentee_id": fields.Integer(
+            required=True, description="Mentorship relation mentor ID"
+        ),
+        "org_rep_id": fields.Integer(
+            required=True, description="Mentorship relation Organization Representative's ID"
+        ),
+        "start_date": fields.Float(
+            required=True,
+            description="Mentorship relation end date in UNIX timestamp format",
         ),
         "end_date": fields.Float(
             required=True,
