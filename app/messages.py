@@ -43,6 +43,7 @@ MENTOR_ID_FIELD_IS_MISSING = {"message": "Mentor ID field is missing."}
 MENTEE_ID_FIELD_IS_MISSING = {"message": "Mentee ID field is missing."}
 MENTEE_OR_MENTOR_ID_FIELD_IS_MISSING = {"message": "Send either Mentor or Mentee ID field in the request body."}
 ORG_REP_ID_FIELD_IS_MISSING = {"message": "Org Representative ID field is missing."}
+MENTORSHIP_RELATION_ID_FIELD_IS_MISSING = {"message": "Mentorship relation ID field is missing."}
 START_DATE_FIELD_IS_MISSING = {"message": "Start date field is missing."}
 END_DATE_FIELD_IS_MISSING = {"message": "End date field is missing."}
 NOTES_FIELD_IS_MISSING = {"message": "Notes field is missing."}
@@ -94,7 +95,13 @@ MENTEE_NOT_AVAIL_TO_BE_MENTORED = {
 MENTEE_ALREADY_IN_A_RELATION = {
     "message": "Mentee user is already in a" " relationship."
 }
-
+# Program already in relation
+MENTOR_ALREADY_ACCEPTED = {
+    "message": "Mentor user has already accepted."
+}
+MENTEE_ALREADY_ACCEPTED = {
+    "message": "Mentee user has already accepted"
+}
 # Mismatch of fields
 MATCH_EITHER_MENTOR_OR_MENTEE = {
     "message": "Your ID has to match either" " Mentor or Mentee IDs."
@@ -198,6 +205,9 @@ UNACCEPTED_STATE_RELATION = {
 }
 MENTORSHIP_RELATION_NOT_IN_ACCEPT_STATE = {
     "message": "Mentorship relation is" " not in the accepted state."
+}
+MENTORSHIP_RELATION_ALREADY_REQUESTED = {
+    "message": "This Mentorship relation has been" " requested already."
 }
 
 # Login errors

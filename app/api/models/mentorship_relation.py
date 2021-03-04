@@ -55,6 +55,9 @@ send_program_mentorship_by_program_request_body = Model(
         "org_rep_id": fields.Integer(
             required=True, description="Mentorship relation Organization Representative's ID"
         ),
+        "relation_id": fields.Integer(
+            description="Mentorship relation Organization Representative's ID"
+        ),
         "start_date": fields.Float(
             required=True,
             description="Mentorship relation end date in UNIX timestamp format",
