@@ -398,9 +398,7 @@ class ProgramMentorshipRelationDAO:
             return messages.CANT_ACCEPT_MENTOR_REQ_SENT_BY_USER, HTTPStatus.FORBIDDEN
 
         # verify if I'm involved in this relation
-        if not (request.mentee_id == user_id or request.mentor_id == user_id):
-            print(request.mentor_id)
-            print(request.mentee_id)
+        if not (request.mentee_id == user_id or request.mentor_id == user_id or user_id == org_rep_id):
             return messages.CANT_ACCEPT_UNINVOLVED_MENTOR_RELATION, HTTPStatus.FORBIDDEN
                 
         my_requests = user.mentee_relations + user.mentor_relations
@@ -416,9 +414,9 @@ class ProgramMentorshipRelationDAO:
         mentee = request.mentee
         mentor = request.mentor
         action_user_id = request.action_user_id
-
-        # If I am mentor : Check if the mentee isn't in any other relation already
+        
         if mentor and mentee:
+            # If I am mentor : Check if the mentee isn't in any other relation already
             if user_id == mentor.id:
                 mentee_requests = mentee.mentee_relations + mentee.mentor_relations
 
@@ -433,15 +431,22 @@ class ProgramMentorshipRelationDAO:
                     if mentor_request.state == MentorshipRelationState.ACCEPTED:
                         return messages.MENTOR_ALREADY_IN_A_RELATION, HTTPStatus.BAD_REQUEST
 
-        # mentor or mentee accepting
+            if ((action_user_id == mentee.id and user_id == mentor.id) or (action_user_id == mentor.id and user_id == mentee.id)) and (user_id != org_rep_id):
+                return messages.CANT_ACCEPT_UNINVOLVED_MENTOR_RELATION, HTTPStatus.FORBIDDEN            
+
         if action_user_id == org_rep_id:
             request.action_user_id = user.id
             request.notes = notes
+            if request.accept_date is not None:
+                request.state = MentorshipRelationState.ACCEPTED    
             request.accept_date = datetime.now().timestamp()
             request.save_to_db()
+        
         else:
             request.action_user_id = org_rep_id
             request.notes = notes
+            if request.accept_date is not None:
+                request.state = MentorshipRelationState.ACCEPTED 
             request.accept_date = datetime.now().timestamp()
             request.save_to_db()
         
